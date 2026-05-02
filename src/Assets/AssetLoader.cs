@@ -153,7 +153,9 @@ namespace CasGunMod.Assets {
 
             byte[] data = File.ReadAllBytes(fullPath);
 
-            Texture2D tex = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+            Texture2D tex = new Texture2D(2, 2, TextureFormat.RGBA32, false, false);
+            tex.filterMode = FilterMode.Point;
+            tex.anisoLevel = 0;
 
             if (!ImageConversion.LoadImage(tex, data)) {
                 Debug.LogError($"Failed to load sprite: {fullPath}");
